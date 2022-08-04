@@ -29,7 +29,7 @@ open class Feind {
 
 }
 
-class Witch (name: String, healthPoints: Double, speed: Int, defValue: Double):Feind (name, healthPoints){
+class Witch (name: String, healthPoints: Double, impactForce: Double, speed: Int, defValue: Double):Feind (name, healthPoints){
     override  fun attack (gladiator: Held){
         val hit = Random.nextInt(1, 101)
 

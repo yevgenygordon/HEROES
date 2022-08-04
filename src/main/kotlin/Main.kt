@@ -1,3 +1,4 @@
+import java.awt.Choice
 import kotlin.random.Random
 
 
@@ -9,17 +10,17 @@ fun main (){
 
 fun start (){
 
-    var knight: Ritter = Ritter("Ritter Ivengo",100.0,8,34.0)
-    var elfArcher: Ritter = Ritter("Elf Agronom",150.0,3,26.0)
-    var princess: Ritter = Ritter("Prinzesin Amira",90.0,7,26.0)
-    var wizard: Ritter = Ritter("Zauberer Merlin",110.0,7,26.0)
-    var superWoman: Ritter = Ritter("Superwoman Diana",500.0,10,80.0)
+    var knight: Ritter = Ritter("Ritter Ivengo",100.0,70.0,8,34.0)
+    var elfArcher: Ritter = Ritter("Elf Agronom",150.0,40.0,3,26.0)
+    var princess: Ritter = Ritter("Prinzesin Amira",90.0,45.0,7,26.0)
+    var wizard: Ritter = Ritter("Zauberer Merlin",110.0,32.0,7,26.0)
+    var superWoman: Ritter = Ritter("Superwoman Diana",500.0,100.0,10,80.0)
 
-    var badKnight: Witch = Witch("Dark Lord",10, 10.0)
-    var gin: Witch = Witch("Gini",10, 10.0)
-    var warlock: Witch = Witch("Elf Tormentor",10, 10.0)
-    var badWitch: Witch = Witch("Mermaid Witch ",10, 10.0)
-    var necromanker: Witch = Witch("Dungeon Necromanker",10, 10.0)
+    var badKnight: Witch = Witch("Dark Lord",250.0,50.0,9, 10.0)
+    var gin: Witch = Witch("Gini",200.0,120.0,8, 10.0)
+    var warlock: Witch = Witch("Elf Tormentor",150.0,45.0,6, 10.0)
+    var badWitch: Witch = Witch("Mermaid Witch ",150.0,40.0,5, 10.0)
+    var necromanker: Witch = Witch("Dungeon Necromanker",200.0,60.0,10, 10.0)
 
 
 
@@ -36,13 +37,10 @@ fun start (){
 
     }
 
-    println()
-    for (n in badChoiceListe.indices) {
-        print(" ${badChoiceListe[n].name}    \n")
-    }
 
 
-    print(""""
+
+    print("""
                     <|  |>
 .,,.      .,,.      _|__|_        .,,.      .,,.    
         | '|,,,,,,| '|     | |  | |       | '|,,,,,,| '| 
@@ -83,6 +81,15 @@ println()
         print(" ${choiceListe[n].name}    \n")
     }
 
+println("\n Gegen dich tretten an:\n")
+
+    println()
+    for (n in badChoiceListe.indices) {
+        print(" ${badChoiceListe[n].name}    \n")
+    }
+
+
+
     print(""" 
        
 
@@ -91,8 +98,8 @@ println()
     """.trimMargin())
 
 
-    fight(knight,badKnight)
-
+ //   fight(knight,badKnight)
+    fightTeam (choiceListe, badChoiceListe)
 }
 
 
@@ -124,29 +131,10 @@ fun fight (gladiator1: Held, gladiator2: Feind) {
 
 
 
-
-
-
-
-
-
-
-
-    print(
-        """" 
-     .        
-      \       
-       G      
-      ( ) .,  
-     _/Xx/ "\ 
-  .+' /   /`" 
- (  |_`_( )   
-    |:  | |   
-    '   ` '   
-      """.trimMargin())
-    println("Finita la comedia!")
-
 }
 
 
+fun fightTeam (gteam1:MutableList<Ritter>, gteam2:MutableList<Witch>){
 
+
+}
