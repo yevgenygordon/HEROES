@@ -30,7 +30,7 @@ open class Held {
 }
 
 
-class Ritter(name: String):Held(name, 200.0){
+class Ritter(name: String, healthPoints: Double, speed: Int, defValue: Double):Held(name, healthPoints){
 
     override fun attack (gladiator: Feind){
         val hit = Random.nextInt(1, 101)
