@@ -1,5 +1,7 @@
 import kotlin.random.Random
 
+
+// Held Class Definition
 open class Held {
     var name: String
     var healthPoints: Double
@@ -14,6 +16,8 @@ open class Held {
     open fun attack (gladiator: Feind){}
 
     open fun sideStep (gladiator: Held){}
+    open fun cure (gladiator: Held){}
+    open fun protectiveSpell (gladiator: Held){}
 
     open fun subtractingHealthPoints (lost: Int, nameAtt: String) {
         this.healthPoints -= lost
@@ -30,7 +34,11 @@ open class Held {
 }
 
 
-class Ritter(name: String, healthPoints: Double, speed: Int, defValue: Double):Held(name, healthPoints){
+
+// Ritter Class Definition
+class Ritter(name: String, healthPoints: Double, impactForce:Double, speed: Int, defValue: Double):Held(name, healthPoints){
+
+
 
     override fun attack (gladiator: Feind){
         val hit = Random.nextInt(1, 101)
@@ -46,5 +54,11 @@ class Ritter(name: String, healthPoints: Double, speed: Int, defValue: Double):H
         }
     }
     override fun sideStep (gladiator: Held){}
+    override fun cure (gladiator: Held) {
+        val aidkit = Random.nextInt(40, 100)
+        healthPoints = healthPoints + aidkit
+
+    }
+    override fun protectiveSpell (gladiator: Held){}
 }
 
