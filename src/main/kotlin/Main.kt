@@ -25,9 +25,9 @@ fun start (){
     var necromanker: Witch = Witch("Dungeon Necromanker",200.0,60.0,10, 10.0)
 
     var diablo: Helper = Helper("Diablo")
-    var diablo: Helper = Helper("Knochen Drache")
-    var diablo: Helper = Helper("Elemental")
-    var diablo: Helper = Helper("M")
+    var drache: Helper = Helper("Knochen Drache")
+    var elemental: Helper = Helper("Elemental")
+    var mermaid: Helper = Helper("Mermaid")
 
 // Listen mit Helden
 
