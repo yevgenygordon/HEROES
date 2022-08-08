@@ -3,13 +3,30 @@ import kotlin.random.Random
 
 // Feind Class Definition
 open class Feind {
+    var defValue: Double
+    var impactForce: Double
+    var speed: Int
     var name: String
     var healthPoints: Double
     var theFin: Boolean = false
 
-    constructor(name: String, healthPoints: Double){
+    constructor(name: String, healthPoints: Double,impactForce: Double, speed: Int, defValue: Double){
         this.name = name
         this.healthPoints = healthPoints
+        this.defValue = defValue
+        this.impactForce =impactForce
+        this.speed = speed
+    }
+
+    fun setHealthpoints(healthPoints: Double){
+        this.healthPoints = healthPoints
+    }
+
+    internal fun getHealthPoints(): Double{
+        return this.healthPoints
+    }
+    internal fun getName(): String{
+        return this.name
     }
 
     open fun attack (gladiator: Held){}
@@ -17,9 +34,11 @@ open class Feind {
     open fun sideStep (gladiator: Feind){}
     open fun curseMagic (gladiator: Held){}
 
-    open fun subtractingHealthPoints (lost: Int, nameAtt: String) {
-        this.healthPoints -= lost
-        println("$name hat $lost Trefferpunkte durch den Angriff von $nameAtt verloren!")
+
+    fun subtractingHealthPoints (lost: Double, nameAtt: String) {
+        var minus = lost * this.defValue
+        this.healthPoints -=  minus
+        println("$name hat ${minus} Lebenspunkte durch den Angriff von $nameAtt verloren!")
 
         if (this.healthPoints <= 0) {
             println("$name ist durch den Angriff von $nameAtt K.O. gegangen.")
@@ -36,17 +55,22 @@ open class Feind {
 
 // Witch Class Definition
 
-open class Witch (name: String, healthPoints: Double, impactForce: Double, speed: Int, defValue: Double):Feind (name, healthPoints){
-    override  fun attack (gladiator: Held){
+open class Witch (name: String, healthPoints: Double, impactForce: Double, speed: Int, defValue: Double):Feind (name, healthPoints, impactForce, speed, defValue){
+
+    var iF:Double = impactForce
+    var dV:Double = defValue
+
+
+    override fun attack (gladiator: Held){
         val hit = Random.nextInt(1, 101)
 
-        if (this.healthPoints < 0) {
+        if (theFin) {
             println("$name ist K.O. und kann nicht angreifen!")
         } else {
-            if (hit in 1..30) {
+            if (hit in 1..15) {
                 println("$name hat verfehlt!")
             } else {
-                gladiator.subtractingHealthPoints(30, this.name)
+                gladiator.subtractingHealthPoints(this.impactForce, this.name)
             }
         }
     }
@@ -59,37 +83,5 @@ open class Witch (name: String, healthPoints: Double, impactForce: Double, speed
 // Helper Class Definition
 
 class Helper (name: String, ):Witch(name, healthPoints = 70.0, impactForce = 20.0, speed = 8,70.0){
-
-
-    fun createHelper (badChoiceListe: MutableList<Any>):String {
-        when (this.name) {
-
-            "Dark Lord" -> { }
-            "Gini" -> {}
-            "Elf Tormentor" -> {}
-            "Mermaid Witch" -> {}
-            "Dungeon Necromanker" -> {}
-
-        }
-
-        return "ok"
-    }
-
-
-    override  fun attack (gladiator: Held){
-        val hit = Random.nextInt(1, 101)
-
-        if (this.healthPoints < 0) {
-            println("$name ist K.O. und kann nicht angreifen!")
-        } else {
-            if (hit in 1..30) {
-                println("$name hat verfehlt!")
-            } else {
-                gladiator.subtractingHealthPoints(30, this.name)
-            }
-        }
-    }
-
-
 
 }
