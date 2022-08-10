@@ -89,4 +89,3 @@ open class Anime(bild:Int){
     }
     }
 
-}

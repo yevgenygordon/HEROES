@@ -89,12 +89,15 @@ fun mortalKombat (gteam1: MutableList<Ritter>,
             trunk = false
         }
 
+
+
+
+
+
         // Kampf Böse Team
 
 
         var toRemoveH = mutableListOf<Held>()
-
-
 
 
         if (!creature) {
@@ -103,8 +106,14 @@ fun mortalKombat (gteam1: MutableList<Ritter>,
 
             when (attackChoice) {
                 0 -> {
-                    attackChoice = Random.nextInt(range = 0 until 4)
-                    when (){}
+
+                    when (gteam2.random().name){
+                        "Dark Lord" -> {gteam2.add(hteam[1])}
+                        "Gini" -> {gteam2.add(hteam[2])}
+                        "Elf Tormentor" -> {gteam2.add(hteam[1])}
+                        "Mermaid Witch" -> {gteam2.add(hteam[3])}
+                        "Dungeon Necromanker" -> {gteam2.add(hteam[0])}
+                    }
                 }
                 1 -> {
                     gteam2.random().attack(gteam1.random())
@@ -117,7 +126,8 @@ fun mortalKombat (gteam1: MutableList<Ritter>,
                 }
             }
 
-            creature = true
+            if (attackChoice == 0){creature = true}
+
 
         }
         else {

@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a13aee04-60c9-4d49-8cb4-25e5c495473f" name="Changes" comment="Merge remote-tracking branch 'HEROES/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/kotlin/Feind.kt&#10;#&#9;src/main/kotlin/Held.kt&#10;#&#9;src/main/kotlin/Main.kt">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/funk.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Anime.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Anime.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Feind.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Feind.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Held.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Held.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/test.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/test.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/funk.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/funk.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +71,7 @@
       <option name="presentableId" value="Default" />
       <updated>1659527091214</updated>
       <workItem from="1659527094084" duration="108676000" />
-      <workItem from="1660142549078" duration="14178000" />
+      <workItem from="1660142549078" duration="16066000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1659528012590</created>
@@ -125,7 +122,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659998084577</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Merge remote-tracking branch 'HEROES/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/kotlin/Feind.kt&#10;#&#9;src/main/kotlin/Held.kt&#10;#&#9;src/main/kotlin/Main.kt">
+      <created>1660170381335</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1660170381335</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -45,7 +45,8 @@ abstract class Held {
     open fun subtractingHealthPoints (lost: Double, nameAtt: String) {
         var minus = lost * this.defValue
         this.healthPoints -=  minus
-        println()
+        println("")
+        println("")
         println("$name hat ${minus} Lebenspunkte durch den Angriff von $nameAtt verloren!")
 
         if (this.healthPoints <= 0) {
