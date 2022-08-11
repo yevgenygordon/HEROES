@@ -9,6 +9,9 @@ open class Feind {
     var name: String
     var healthPoints: Double
     var theFin: Boolean = false
+    var nHname: String? = null
+    var countDown:Int = 0
+    var changeOrNo:Boolean = false
 
     constructor(name: String, healthPoints: Double,impactForce: Double, speed: Int, defValue: Double){
         this.name = name
@@ -33,12 +36,19 @@ open class Feind {
 
     open fun diversion (gladiator: Held) {}
     open fun curseMagic (gladiator: Held) {}
+    open fun changeName (gladiator: Held) {}
+
+
+
 
 
     fun subtractingHealthPoints (lost: Double, nameAtt: String) {
         var minus = lost * this.defValue
         this.healthPoints -=  minus
+
+        println("")
         println("$name hat ${minus} Lebenspunkte durch den Angriff von $nameAtt verloren!")
+        println("Restleben von ${name} nach Schwertangriff der Dunkelheit   ${healthPoints}")
 
         if (this.healthPoints <= 0) {
             println("$name ist durch den Angriff von $nameAtt K.O. gegangen.")
@@ -71,7 +81,6 @@ open class Witch (name: String, healthPoints: Double, impactForce: Double, speed
                 println("$name hat verfehlt!")
             } else {
                 gladiator.subtractingHealthPoints(impactForce, name)
-                println("Restleben von ${gladiator.name} nach Schwertangriff der Dunkelheit   ${gladiator.healthPoints}")
             }
         }
     }
@@ -87,6 +96,21 @@ open class Witch (name: String, healthPoints: Double, impactForce: Double, speed
             println("Restleben von ${gladiator.name} nach TodesFluch von $name     ${gladiator.healthPoints}")}
 
         }
+
+    override fun changeName (gladiator: Held){
+        nHname = gladiator.name
+        val nListe:MutableList<String> = mutableListOf("Antipasti","GetBusy","Username","Obi-LAN Kenobi","Regenfrida","Unique Name","Relative Performance","FritzchenBox","Connecto Patronum","Der Gerät","Jutta-Jessica")
+
+        if (theFin){ println("$name ist K.O. und kann nicht demoralisieren!") }
+        else {
+
+            gladiator.name = nListe.random()
+            println("${nHname} wurde von $name  demoralisiert, und heist jetzt   ${gladiator.name}")}
+           changeOrNo = true
+
+    }
+
+
 
 
 

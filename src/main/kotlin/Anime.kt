@@ -57,7 +57,7 @@ open class Anime(bild:Int){
 /_`-'_`-'_`-'_|  \+/  |           II    II  II       II   II  II   II
 \_`H'_vs _`M'_| _<=>_ |           IIIIIIII  IIIIIII  IIIIII   II   II
   `-' `-' `-' 0/ \ / o=o          II    II  II       II  II   II   II
-              \/\ ^ /`0           II    II  IIIIIII  II   II   IIIII  
+              \/\ ^ /`0           II    II  IIIIIII  II   II   IIIII  s vs Magie
               | /_^_\
               | || ||
             __|_d|_|b__

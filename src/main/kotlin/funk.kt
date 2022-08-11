@@ -11,6 +11,8 @@ fun mortalKombat (gteam1: MutableList<Ritter>,
     var trunk: Boolean = false
     var creature: Boolean = false
     var attackChoice: Int? = null
+    var neuHeldname:MutableList<String>
+    var counterResset:Int
 
 
 
@@ -33,9 +35,11 @@ fun mortalKombat (gteam1: MutableList<Ritter>,
 
         var toRemoveF = mutableListOf<Feind>()
 
-        println("Bitte wähle Aktion für dein ${herosTurn + 1} Held :")
+        println("Bitte wähle Aktion für dein ${herosTurn + 1} Held ${gteam1[herosTurn].name} :")
         println(
             "1. Atacke  | 2. Jemanden Heilen | ${if (!trunk) { "3. Zaubertrunk" } else { "" }} ")
+
+
         val action = readln().toInt()
 
         when (action) {
@@ -47,7 +51,24 @@ fun mortalKombat (gteam1: MutableList<Ritter>,
                         print("${gl + 1} ${gteam2[gl].name}: ${gteam2[gl].healthPoints}    ")
                     }
                 }
+  // Opfer Auswahl und Prüfung
+
+
                 val attackFirst = readln().toInt()
+                if (attackFirst < 0 || attackFirst > gteam2.size){
+                    println("Falsche Eingabe. Zahl zu groß")
+                    println("")
+
+                    println("Bitte wähle Angrifziel für dein ${herosTurn + 1} Held:")
+                    for (gl in gteam2.indices) {
+                        if (!gteam2[gl].theFin) {
+                            print("${gl + 1} ${gteam2[gl].name}: ${gteam2[gl].healthPoints}    ")
+                        }
+                    }
+
+                }
+
+
                 gteam1[herosTurn].attack(gteam2[attackFirst - 1])
 
 
@@ -84,10 +105,7 @@ fun mortalKombat (gteam1: MutableList<Ritter>,
 
         herosTurn++
 
-        if (herosTurn > gteam1.size-1){
-            herosTurn = 0
-            trunk = false
-        }
+
 
 
 
@@ -101,18 +119,24 @@ fun mortalKombat (gteam1: MutableList<Ritter>,
 
 
         if (!creature) {
-            println("kreature")
-            attackChoice = Random.nextInt(range = 0 until 4)
+
+            attackChoice = Random.nextInt(range = 0 until 6)
 
             when (attackChoice) {
                 0 -> {
 
                     when (gteam2.random().name){
-                        "Dark Lord" -> {gteam2.add(hteam[1])}
-                        "Gini" -> {gteam2.add(hteam[2])}
-                        "Elf Tormentor" -> {gteam2.add(hteam[1])}
-                        "Mermaid Witch" -> {gteam2.add(hteam[3])}
-                        "Dungeon Necromanker" -> {gteam2.add(hteam[0])}
+                        "Dark Lord" -> {
+                            gteam2.add(hteam[1])
+                            println("Dark Lord hat hat Knochen Drachen angelockt. Knochen Drachen wurde Team hinzugefügt") }
+                        "Gini" -> {gteam2.add(hteam[2])
+                            println("Gini hat ein elemental geschafft. Elemental wurde Team hinzugefügt")}
+                        "Elf Tormentor" -> {gteam2.add(hteam[1])
+                            println("Elf Tormentor hat Knochen Drachen angelockt. Knochen Drachen wurde Team hinzugefügt")}
+                        "Mermaid Witch" -> {gteam2.add(hteam[3])
+                            println("Mermaid Witch hat Freundin eingeladen. Mermaid wurde Team hinzugefügt") }
+                        "Dungeon Necromanker" -> {gteam2.add(hteam[0])
+                            println("Dungeon Necromanker hat zu Diablo aufgerufen. Diablo wurde Team hinzugefügt") }
                     }
                 }
                 1 -> {
@@ -124,6 +148,19 @@ fun mortalKombat (gteam1: MutableList<Ritter>,
                 3 -> {
                     gteam2.random().diversion(gteam1.random())
                 }
+
+                4 -> {
+
+                    gteam2.random().diversion(gteam1.random())
+                }
+                5 -> {
+
+                    gteam2.random().changeName(gteam1.random())
+
+                }
+
+
+
             }
 
             if (attackChoice == 0){creature = true}
@@ -131,12 +168,9 @@ fun mortalKombat (gteam1: MutableList<Ritter>,
 
         }
         else {
-            attackChoice = Random.nextInt(1,4)
+            attackChoice = Random.nextInt(1,5)
 
             when (attackChoice) {
-                0 -> {
-                    println("0 ATTAKE")
-                }
                 1 -> {
                     gteam2.random().attack(gteam1.random())
                 }
@@ -146,8 +180,15 @@ fun mortalKombat (gteam1: MutableList<Ritter>,
                 3 -> {
                     gteam2.random().diversion(gteam1.random())
                 }
+                4 -> {
+
+                    gteam2.random().changeName(gteam1.random())
+
+                }
             }
         }
+
+
 
         for(hero in gteam1){
 
@@ -158,9 +199,27 @@ fun mortalKombat (gteam1: MutableList<Ritter>,
             }
         }
         gteam1.removeAll(toRemoveH)
+
         if (gteam1.size == 0){
             println("Die dunklen Mächte haben gewonnen. Finita la Comedia")
             break}
+
+
+        if (herosTurn > gteam1.size-1){
+            herosTurn = 0
+            trunk = false
+        }
+
+        roundCounter++
+
+        gteam1[herosTurn].countDown++
+
+        if (gteam1[herosTurn].name != gteam1[herosTurn].nHname && gteam1[herosTurn].cDfunc(gteam1[herosTurn])){
+            gteam1[herosTurn].changeNameBack(gteam1[herosTurn])
+        }
+   // Ende while schleife
     }
+
+    bildNumber.printBild(6)
 
 }

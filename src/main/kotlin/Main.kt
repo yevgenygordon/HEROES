@@ -14,15 +14,15 @@ fun start() {
     var bildNumber: Anime = Anime(1)
 
     var knight: Ritter = Ritter("Ritter Ivengo", 100.0, 70.0, 8, 0.5)
-    var elfArcher: Ritter = Ritter("Elf Agronom", 150.0, 40.0, 3, 0.8)
-    var princess: Ritter = Ritter("Prinzesin Amira", 90.0, 45.0, 7, 1.0)
+    var elfArcher: Ritter = Ritter("Elf Agronom", 150.0, 50.0, 3, 0.8)
+    var princess: Ritter = Ritter("Prinzesin Amira", 90.0, 55.0, 7, 1.0)
     var wizard: Ritter = Ritter("Zauberer Merlin", 110.0, 32.0, 7, 0.7)
     var superWoman: Ritter = Ritter("Superwoman Diana", 300.0, 100.0, 10, 0.3)
 
-    var badKnight: Witch = Witch("Dark Lord", 250.0, 50.0, 9, 0.7)
+    var badKnight: Witch = Witch("Dark Lord", 250.0, 50.0, 9, 0.8)
     var gin: Witch = Witch("Gini", 200.0, 80.0, 8, 0.6)
     var warlock: Witch = Witch("Elf Tormentor", 150.0, 45.0, 6, 0.7)
-    var badWitch: Witch = Witch("Mermaid Witch", 150.0, 40.0, 5, 0.9)
+    var badWitch: Witch = Witch("Mermaid Witch", 150.0, 40.0, 5, 0.8)
     var necromanker: Witch = Witch("Dungeon Necromanker", 200.0, 60.0, 10, 0.7)
 
     var diablo: Helper = Helper("Diablo")
@@ -56,7 +56,7 @@ fun start() {
 
 
     // Gibt Anime Bild 1 aus
-    bildNumber.printBild(1)
+    bildNumber.printBild(2)
 
 
     // Spielerauswahl für Liste der Helden

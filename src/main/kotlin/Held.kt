@@ -10,6 +10,9 @@ abstract class Held {
     var name: String
     var healthPoints: Double
     var theFin: Boolean = false
+    var nHname: String? = null
+    var countDown:Int = 0
+    var changeOrNo:Boolean = false
 
 
     constructor(name: String, healthPoints: Double, impactForce: Double, speed: Int, defValue: Double){
@@ -40,14 +43,16 @@ abstract class Held {
     open fun cureHeld (gladiator: Held){}
     open fun protectiveSpell (gladiator: Held){}
     open fun magicTrunk (gladiator: Held){}
+    open fun changeNameBack (gladiator: Held) {}
+    open fun cDfunc (gladiator: Held):Boolean {return false}
 
 
     open fun subtractingHealthPoints (lost: Double, nameAtt: String) {
         var minus = lost * this.defValue
         this.healthPoints -=  minus
         println("")
-        println("")
         println("$name hat ${minus} Lebenspunkte durch den Angriff von $nameAtt verloren!")
+        println("Restleben von ${name} nach heiligen Schwertangriff   ${healthPoints}")
 
         if (this.healthPoints <= 0) {
             println("$name ist durch den Angriff von $nameAtt K.O. gegangen.")
@@ -85,7 +90,6 @@ class Ritter(name: String, healthPoints: Double, impactForce: Double, speed: Int
                 println("$name hat verfehlt!")
             } else {
                 gladiator.subtractingHealthPoints(impactForce, name)
-                println("Restleben von ${gladiator.name} nach heiligen Schwertangriff   ${gladiator.healthPoints}")
                 bildNumber.printBild(4)
             }
         }
@@ -95,16 +99,40 @@ class Ritter(name: String, healthPoints: Double, impactForce: Double, speed: Int
 
     override fun protectiveSpell (gladiator: Held){}
     override fun magicTrunk (gladiator: Held){
-        impactForce *= 1.10
+        impactForce *= 1.20
         println(" $name hat neue Angrifswert   $impactForce")
         bildNumber.printBild(4)
 
     }
 
     override fun cureHeld (gladiator: Held){
-        healthPoints *=1.50
+
+        if (healthPoints > 50){
+            healthPoints *=1.50
+        }
+        else {
+            healthPoints += 40
+        }
+
         println("$name wurde geheilt, und hat  $healthPoints Punkte Restleben")
         bildNumber.printBild(4)
+
+    }
+
+    override fun changeNameBack (gladiator: Held){
+
+        if (changeOrNo){
+            name = nHname.toString()
+            println("${name} hat sich wieder im Griff. Und reagiert wieder auf ${name}")}
+   }
+    override fun cDfunc (gladiator: Held):Boolean{
+
+
+    if (countDown == 3)   {
+        countDown = 0
+        return true
+    }
+        else {return false}
 
     }
 }
